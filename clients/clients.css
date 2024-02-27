@@ -1,0 +1,37 @@
+.card {
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info {
+    flex-grow: 1;
+}
+
+.name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.address, .phone, .n_identif {
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.btn-details {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-left:  8.5rem ;
+}
+
+.btn-details:hover {
+    background-color: #0056b3;
+}
