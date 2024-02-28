@@ -169,14 +169,14 @@ label {
 
                 <div class="col-lg-12 login-form">
                     <div class="col-lg-12 login-form">
-                        <form>
+                        <form action="../user/connexion.php" method="post">
                             <div class="form-group">
                                 <label class="form-control-label">USERNAME</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="login">
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">PASSWORD</label>
-                                <input type="password" class="form-control" i>
+                                <input type="password" class="form-control" name="passwd" >
                             </div>
 
                             <div class="col-lg-12 loginbttm">
