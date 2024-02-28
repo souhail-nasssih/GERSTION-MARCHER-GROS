@@ -25,16 +25,14 @@
             ?>
         </header>
         <div class="container mt-5">
+                <div class="input-group w-100 d-flex  justify-content-center  ">
+                    <div class="w-50 mb-5 d-flex">
+                        <input type="text" name="searche" id="searche" class="form-control " placeholder="Rechercher par nom de produit">
+                        <span class="input-group-text"><i class='bx bx-search-alt-2'></i></span>
+                    </div>
+                </div>
             <form action="delete_produit.php" method="post">
 
-                <form method="get" action="recherche.php" class="mb-3">
-                    <div class="input-group w-100 d-flex  justify-content-center  ">
-                        <div class="w-50 mb-5 d-flex">
-                            <input type="text" name="searche" id="searche" class="form-control " placeholder="Rechercher par nom de produit">
-                            <span class="input-group-text"><i class='bx bx-search-alt-2'></i></span>
-                        </div>
-                    </div>
-                </form>
 
                 <table class="table table-striped">
                     <thead class="table-dark opacity-75">

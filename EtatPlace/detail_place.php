@@ -44,6 +44,17 @@ if(isset($_GET['id'])) {
         ?>
     </header>
     <div class="container mt-5">
+    <div class="row">
+                <div class="col">
+                    <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4" style="background-image: url(../clients/img/breadcrumb-bg.jpg);">
+                        <ol class="breadcrumb mb-0">
+                            <!-- <li class="breadcrumb-item"><a href="#">Home</a></li> -->
+                            <li class="breadcrumb-item "><a href="http://localhost/nvappe/clients/afficheCLients.php" class="text-light ">Places</a></li>
+                            <li class="breadcrumb-item active text-light" aria-current="page"> Detail Place</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
         <table class="table table-striped">
             <thead class="table-dark opacity-75">
                 <tr>

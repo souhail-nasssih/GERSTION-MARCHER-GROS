@@ -23,15 +23,21 @@ include_once "__AfficheSortir.php";
         include_once(__DIR__ . '/../inc/sidebar.php');
         ?>
     </header>
+    <div class="input-group w-100 d-flex  justify-content-center  mt-5">
+        <div class="w-50 mb-5 d-flex">
+            <input type="text" name="searche" id="searche" class="form-control " placeholder="Rechercher par CIN">
+            <span class="input-group-text"><i class='bx bx-search-alt-2'></i></span>
+        </div>
+    </div>
 
-    <div class="container mt-5">
+    <div class="container mt-3">
         <table class="table table-striped">
             <thead class="table-dark opacity-75">
                 <tr>
                     <th>IDSortir</th>
                     <th>IDEntrer</th>
                     <th>Nom</th>
-                    <th>Identif</th>
+                    <th>CIN</th>
                     <th>Date</th>
                     <th>Action</th>
                 </tr>
@@ -86,6 +92,32 @@ include_once "__AfficheSortir.php";
     <?php
     include_once(__DIR__ . '/../inc/footer.php');
     ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searche');
+            const tableRows = document.querySelectorAll('tbody tr');
+
+            searchInput.addEventListener('input', function() {
+                const searchQuery = searchInput.value.toLowerCase();
+
+                tableRows.forEach(function(row) {
+                    const nomProduitCell = row.querySelector('td:nth-child(5)'); // 3 est l'index de la colonne "Nom Produit"
+                    const nomProduit = nomProduitCell.textContent.toLowerCase();
+
+                    if (nomProduit.includes(searchQuery)) {
+                        row.style.display = ''; // Afficher la ligne si le nom du produit correspond à la recherche
+                    } else {
+                        row.style.display = 'none'; // Masquer la ligne si le nom du produit ne correspond pas à la recherche
+                    }
+                });
+            });
+
+            // Afficher toutes les lignes du tableau initialement
+            tableRows.forEach(function(row) {
+                row.style.display = '';
+            });
+        });
+    </script>
 </body>
 
 </html>

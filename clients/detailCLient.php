@@ -4,22 +4,31 @@ require('C:/laragon/www/NVAPPE/connection/__connection.php');
     $cnx = connecter();
     $id = $_GET['id'];
     print_r($_GET['id']);
-    $query = "SELECT DISTINCT
-    c.NomClient, c.AdresseClient, c.N_identif,c.tel ,
+    $query1 = "SELECT
+    NomClient, AdresseClient, N_identif, tel
+  FROM 
+    clients 
+  WHERE 
+    N_identif = '$id'";
+    $query2 = "SELECT DISTINCT
     e.QuantiteEntrer, s.QuantiteSortir, s.PrixVente, e.DateEntrer, 
-    p.NomPlace, pr.NomProduit
-    FROM 
+    p.NomPlace, pr.NomProduit 
+  FROM 
     clients c  
-    JOIN fromsortir s ON s.IDClient = c.IDClient
-    JOIN produits pr ON pr.IDProduit = s.IDProduit
-    JOIN fromentrer e ON e.IDClient = c.IDClient AND e.IDProduit = s.IDProduit
-    JOIN places p ON p.IDPlace = e.IDPlace
-    WHERE c.N_identif = '$id'";
-    
-    $res = mysqli_query($cnx, $query);
-    $result = mysqli_query($cnx, $query);
-    $row = mysqli_fetch_assoc($result);
-    
+  JOIN 
+    fromsortir s ON s.IDClient = c.IDClient
+  JOIN 
+    produits pr ON pr.IDProduit = s.IDProduit
+  JOIN 
+    fromentrer e ON e.IDClient = c.IDClient AND e.IDProduit = s.IDProduit
+  JOIN 
+    places p ON p.IDPlace = e.IDPlace
+  WHERE 
+    c.N_identif = '$id'";
+
+    $res = mysqli_query($cnx, $query2);
+    $result1 = mysqli_query($cnx, $query1);
+    $roww = mysqli_fetch_assoc($result1);
 
 ?>
 
@@ -49,11 +58,11 @@ require('C:/laragon/www/NVAPPE/connection/__connection.php');
         <div class="container py-5">
             <div class="row">
                 <div class="col">
-                    <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                    <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4" style="background-image: url(../clients/img/breadcrumb-bg.jpg);">
                         <ol class="breadcrumb mb-0">
                             <!-- <li class="breadcrumb-item"><a href="#">Home</a></li> -->
-                            <li class="breadcrumb-item"><a href="http://localhost/nvappe/clients/afficheCLients.php">Vendeur</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"> Profile Vendeur</li>
+                            <li class="breadcrumb-item "><a href="http://localhost/nvappe/clients/afficheCLients.php" class="text-light ">Vendeur</a></li>
+                            <li class="breadcrumb-item active text-light" aria-current="page"> Profile Vendeur</li>
                         </ol>
                     </nav>
                 </div>
@@ -64,9 +73,9 @@ require('C:/laragon/www/NVAPPE/connection/__connection.php');
                     <div class="card mb-4">
                         <div class="card-body text-center">
                             <img src="./img/profil-removebg-preview.png" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                            <h5 class="my-3"><?= $row['NomClient'] ?></h5>
+                            <h5 class="my-3"><?= $roww['NomClient'] ?></h5>
                             <p class="text-muted mb-1">Vendeur dans Marcher BioVita</p>
-                            <p class="text-muted mb-4"><?= $row['AdresseClient'] ?></p>
+                            <p class="text-muted mb-4"><?= $roww['AdresseClient'] ?></p>
                         </div>
                     </div>
 
@@ -79,7 +88,7 @@ require('C:/laragon/www/NVAPPE/connection/__connection.php');
                                     <p class="mb-0">Full Name</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0"><?= $row['NomClient'] ?></p>
+                                    <p class="text-muted mb-0"><?= $roww['NomClient'] ?></p>
                                 </div>
                             </div>
                             <hr>
@@ -88,7 +97,7 @@ require('C:/laragon/www/NVAPPE/connection/__connection.php');
                                     <p class="mb-0">CIN</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0"><?= $row['N_identif'] ?></p>
+                                    <p class="text-muted mb-0"><?= $roww['N_identif'] ?></p>
                                 </div>
                             </div>
 
@@ -98,7 +107,7 @@ require('C:/laragon/www/NVAPPE/connection/__connection.php');
                                     <p class="mb-0">Mobile</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0"><?= $row['tel'] ?></p>
+                                    <p class="text-muted mb-0"><?= $roww['tel'] ?></p>
                                 </div>
                             </div>
                             <hr>
@@ -107,7 +116,7 @@ require('C:/laragon/www/NVAPPE/connection/__connection.php');
                                     <p class="mb-0">Address</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0"><?= $row['AdresseClient'] ?></p>
+                                    <p class="text-muted mb-0"><?= $roww['AdresseClient'] ?></p>
                                 </div>
                             </div>
                         </div>
@@ -144,22 +153,6 @@ require('C:/laragon/www/NVAPPE/connection/__connection.php');
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </section>
 

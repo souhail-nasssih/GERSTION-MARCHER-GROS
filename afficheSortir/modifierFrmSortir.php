@@ -58,27 +58,36 @@ while ($fs = $res->fetch_object()) {
     </header>
     <div class="row">
         <div class="container">
-            <div class="col-6 container">
-                <form action="__modifierSortir.php?id=<?= $IDSortir ?>" method="post" id="sortieForm">
+            <div class="col-6 container w-100 ">
+                <form action="__modifierSortir.php?id=<?= $IDSortir ?>" method="post" id="sortieForm" class="w-100">
                     <!-- Informations sur le client -->
-                    <div class="mb-3">
-                        <input type="hidden" class="form-control" id="idClient" name="IDClient" value="<?= $c->IDClient ?>">
-                    </div>
-                    <!-- Autres champs pour les informations du client -->
-                    <div class="mb-3">
-                        <h5 id="nomClient" name="NomClient">Nom Client : <?= $c->NomClient ?></h5>
-                    </div>
-                    <div class="mb-3">
-                        <h5 id="adresseClient" name="AdresseClient">Adresse Client : <?= $c->AdresseClient ?></h5>
-                    </div>
-                    <div class="mb-3">
-                        <h5 id="N_identif" name="N_identif">N identif : <?= $c->N_identif ?></h5>
+                    <div class="mt-5 ms-5 ">
+                        <table class="table">
+                        
+
+                                <tbody class="fs-5">
+                                    <tr>
+                                        <td><strong>Nom Client :</strong></td>
+                                        <td><?= $c->NomClient ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Adresse Client :</strong></td>
+                                        <td><?= $c->AdresseClient ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>N Identif :</strong></td>
+                                        <td><?= $c->N_identif ?></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
                     </div>
                     <!-- Informations sur les produits et les quantités totales entrées -->
                     <!-- Récupérer l'IDEntrer ici -->
                     <input type="hidden" name="IDEntrer" value="<?= $IDEntrer ?>">
-                    <table class="table table-striped">
-                        <thead class="table-dark opacity-75">
+                    <table class="table table-striped mt-5 text-center ">
+                        <thead class="table-dark opacity-75 ">
                             <tr>
                                 <th>Produit</th>
                                 <th>Quantité Entrée (Kg)</th>
@@ -107,7 +116,8 @@ while ($fs = $res->fetch_object()) {
                         </tbody>
                     </table>
 
-                    <button type="button" class="btn btn-primary" onclick="validateForm()">Enregistrer la Sortie</button>
+                    <button type="button" class="btn btn-primary" onclick="validateForm()">Enregistrer la
+                        Sortie</button>
                 </form>
             </div>
         </div>
@@ -133,46 +143,49 @@ while ($fs = $res->fetch_object()) {
     <?php
     include_once(__DIR__ . '/../inc/footer.php');
     ?>
-<script>
-    function validateForm() {
-        var quantiteSortirInputs = document.querySelectorAll('[name="quantiteSortir[]"]');
-        var prixVenteInputs = document.querySelectorAll('[name="PrixVent[]"]');
-        var isValid = true;
-        var invalidProducts = [];
+    <script>
+        function validateForm() {
+            var quantiteSortirInputs = document.querySelectorAll('[name="quantiteSortir[]"]');
+            var prixVenteInputs = document.querySelectorAll('[name="PrixVent[]"]');
+            var isValid = true;
+            var invalidProducts = [];
 
-        // Vérification de la quantité sortir et du prix de vente pour chaque produit
-        for (var i = 0; i < quantiteSortirInputs.length; i++) {
-            var quantiteSortir = quantiteSortirInputs[i].value.trim();
-            var prixVente = prixVenteInputs[i].value.trim();
+            // Vérification de la quantité sortir et du prix de vente pour chaque produit
+            for (var i = 0; i < quantiteSortirInputs.length; i++) {
+                var quantiteSortir = quantiteSortirInputs[i].value.trim();
+                var prixVente = prixVenteInputs[i].value.trim();
 
-            if (quantiteSortir === '' || prixVente === '') {
-                isValid = false;
-                invalidProducts.push(document.querySelectorAll('[name="NomProduit[]"]')[i].innerText + ' - Quantité: ' + quantiteSortir);
-            } else {
-                var quantiteEntrerElement = document.querySelectorAll('[name="quantiteEntrer"]')[i];
-                var quantiteEntrer = parseFloat(quantiteEntrerElement.innerText);
-
-                if (isNaN(quantiteEntrer) || parseFloat(quantiteSortir) > quantiteEntrer) {
+                if (quantiteSortir === '' || prixVente === '') {
                     isValid = false;
-                    invalidProducts.push(document.querySelectorAll('[name="NomProduit[]"]')[i].innerText + ' - Quantité entrée: ' + quantiteEntrer + ', Quantité sortie: ' + quantiteSortir);
+                    invalidProducts.push(document.querySelectorAll('[name="NomProduit[]"]')[i].innerText + ' - Quantité: ' +
+                        quantiteSortir);
+                } else {
+                    var quantiteEntrerElement = document.querySelectorAll('[name="quantiteEntrer"]')[i];
+                    var quantiteEntrer = parseFloat(quantiteEntrerElement.innerText);
+
+                    if (isNaN(quantiteEntrer) || parseFloat(quantiteSortir) > quantiteEntrer) {
+                        isValid = false;
+                        invalidProducts.push(document.querySelectorAll('[name="NomProduit[]"]')[i].innerText +
+                            ' - Quantité entrée: ' + quantiteEntrer + ', Quantité sortie: ' + quantiteSortir);
+                    }
                 }
             }
-        }
 
-        if (!isValid) {
-            var errorMessage = "Veuillez remplir tous les champs et assurez-vous que la quantité de sortie ne dépasse pas la quantité d'entrée pour les produits suivants:\n";
-            errorMessage += invalidProducts.join('\n');
+            if (!isValid) {
+                var errorMessage =
+                    "Veuillez remplir tous les champs et assurez-vous que la quantité de sortie ne dépasse pas la quantité d'entrée pour les produits suivants:\n";
+                errorMessage += invalidProducts.join('\n');
 
-            // Affichage de l'erreur dans une fenêtre modale
-            document.getElementById('errorModalBody').innerText = errorMessage;
-            var myModal = new bootstrap.Modal(document.getElementById('errorModal'));
-            myModal.show();
-        } else {
-            // Si tout est valide, soumettre le formulaire
-            document.getElementById('sortieForm').submit();
+                // Affichage de l'erreur dans une fenêtre modale
+                document.getElementById('errorModalBody').innerText = errorMessage;
+                var myModal = new bootstrap.Modal(document.getElementById('errorModal'));
+                myModal.show();
+            } else {
+                // Si tout est valide, soumettre le formulaire
+                document.getElementById('sortieForm').submit();
+            }
         }
-    }
-</script>
+    </script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

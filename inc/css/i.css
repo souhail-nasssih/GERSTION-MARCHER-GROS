@@ -9,6 +9,7 @@
   --normal-font-size: 1rem;
   --z-fixed: 100;
 }
+
 *,
 ::before,
 ::after {
@@ -21,14 +22,16 @@ body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   transition: 0.5s;
+  
 }
+
 a {
   text-decoration: none;
 }
 .header {
   width: 100%;
   height: var(--header-height);
-  position: fixed;
+  position: fixed ;
   top: 0;
   left: 0;
   display: flex;
