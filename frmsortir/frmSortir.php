@@ -29,25 +29,35 @@
         </header>
         <div class="container ">
             <div class="row">
-                <div class="col-6 container ">
-                    <form id="sortieForm" action="__ajouteSortir.php?idP=<?= $p->IDPlace ?>" method="post">
+                <div class="col-12 container ">
+                    <form id="sortieForm" action="__ajouteSortir.php?idP=<?= $p->IDPlace ?>" method="post" class="w-100">
                         <!-- Informations sur le client -->
                         <div class="mb-3">
                             <input type="hidden" id="idClient" name="IDClient" value="<?= $row->IDClient ?>">
                         </div>
-                        <!-- Autres champs pour les informations du client -->
-                        <div class="mb-3">
-                            <label for="nomClient" class="form-label">Nom Client</label>
-                            <h5 id="nomClient" name="NomClient"><?= $row->NomClient ?></h5>
-                        </div>
-                        <div class="mb-3">
-                            <label for="adresseClient" class="form-label">Adresse Client</label>
-                            <h5 id="adresseClient" name="AdresseClient"><?= $row->AdresseClient ?></h5>
-                        </div>
-                        <div class="mb-3">
-                            <label for="nIdentif" class="form-label">N identif</label>
-                            <h5 id="nIdentif" name="N_identif"><?= $row->N_identif ?></h5>
-                        </div>
+                                           <!-- Informations sur le client -->
+                    <div class="mt-5 ms-5 ">
+                        <table class="table">
+                        
+
+                                <tbody class="fs-5">
+                                    <tr>
+                                        <td><strong>Nom Client :</strong></td>
+                                        <td><?= $row->NomClient ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Adresse Client :</strong></td>
+                                        <td><?= $row->AdresseClient ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>N Identif :</strong></td>
+                                        <td><?= $row->N_identif ?></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                    </div>
                         <!-- Informations sur les produits et les quantités totales entrées -->
                         <!-- Récupérer l'IDEntrer ici -->
                         <input type="hidden" name="IDEntrer" value="<?= $IDEntrer ?>">

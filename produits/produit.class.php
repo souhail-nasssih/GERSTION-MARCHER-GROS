@@ -6,14 +6,16 @@ class Produit
     public $nomproduit;
     public $description;
     public $date;
+    public $type;
 
     //methodes
     //
-    function __construct($nomproduit, $description, $date)
+    function __construct($nomproduit, $description, $date, $type)
     {
         $this->nomproduit = $nomproduit;
         $this->description = $description;
         $this->date = $date;
+        $this->type = $type;
     }
     public function ajouter_produit()
     {
@@ -21,9 +23,9 @@ class Produit
             //connection db
             $cnx = Utils::connecter_db();
             //preparer une requete SQL 
-            $rp = $cnx->prepare("insert into produits (NomProduit,DescriptionProduit,DateDM) values(?,?,?)");
+            $rp = $cnx->prepare("insert into produits (NomProduit,DescriptionProduit,DateDM,type) values(?,?,?,?)");
             //execution
-            $rp->execute([$this->nomproduit, $this->description, $this->date]);
+            $rp->execute([$this->nomproduit, $this->description, $this->date, $this->type]);
         } catch (\Throwable $th) {
             echo "Erreur d'ajout d'un Produit " . $th->getMessage();
         }
@@ -35,9 +37,9 @@ class Produit
             //connection db
             $cnx = Utils::connecter_db();
             //preparer une requete SQL 
-            $rp = $cnx->prepare("update produits set NomProduit=?,DescriptionProduit=?,DateDM=? where IDProduit=?");
+            $rp = $cnx->prepare("update produits set NomProduit=?,DescriptionProduit=?,DateDM=?, Type=? where IDProduit=?");
             //execution
-            $rp->execute([$this->nomproduit, $this->description, $this->date, $id]);
+            $rp->execute([$this->nomproduit, $this->description, $this->date,$this->type, $id]);
         } catch (\Throwable $th) {
             echo "Erreur de modification d'un produit " . $th->getMessage();
         }

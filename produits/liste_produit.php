@@ -31,6 +31,9 @@
                         <span class="input-group-text"><i class='bx bx-search-alt-2'></i></span>
                     </div>
                 </div>
+                <div class="d-flex justify-content-end ">
+                   <a href="./create_prpduits.php" class="nav-link"> <button type="button" class="btn btn-outline-secondary  mb-2"><i class='bx bx-cart-add'></i> Ajoute Produit</button></a>
+                </div>
             <form action="delete_produit.php" method="post">
 
 

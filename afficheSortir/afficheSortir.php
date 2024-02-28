@@ -34,8 +34,8 @@ include_once "__AfficheSortir.php";
         <table class="table table-striped">
             <thead class="table-dark opacity-75">
                 <tr>
-                    <th>IDSortir</th>
-                    <th>IDEntrer</th>
+                    <!-- <th>IDSortir</th>
+                    <th>IDEntrer</th> -->
                     <th>Nom</th>
                     <th>CIN</th>
                     <th>Date</th>
@@ -45,10 +45,10 @@ include_once "__AfficheSortir.php";
             <tbody>
                 <?php while ($row = $result->fetch_object()) { ?>
                     <tr>
-                        <td><?= $row->IDSortir ?></td>
+                        <td hidden><?= $row->IDSortir ?></td>
                         <td hidden><?= $row->IDClient ?></td>
-                        <td><?= $row->IDEntrer ?></td>
-                        <td><?= $row->NomClient ?></td>
+                        <td hidden ><?= $row->IDEntrer ?></td>
+                        <td class="fw-bold text-center"><?= $row->NomClient ?></td>
                         <td><?= $row->N_identif ?></td>
                         <td class="w-25"><?= date('Y-m-d', strtotime($row->DateSortir)) ?></td>
                         <td class="w-100 d-flex">

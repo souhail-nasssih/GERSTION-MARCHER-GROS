@@ -43,8 +43,8 @@ $result = mysqli_query($cnx, $query);
         <table class="table table-striped">
             <thead class="table-dark opacity-75">
                 <tr>
-                    <th>IDEntrer</th>
-                    <th>IDClient</th>
+                    <!-- <th>IDEntrer</th>
+                    <th>IDClient</th> -->
                     <th>Nom</th>
                     <th>CIN</th>
                     <th>Place</th>
@@ -68,8 +68,8 @@ $result = mysqli_query($cnx, $query);
 
                 ?>
                     <tr>
-                        <td><?= $row['IDEntrer'] ?></td>
-                        <td><?= $row['IDClient'] ?></td>
+                        <td hidden><?= $row['IDEntrer'] ?></td>
+                        <td hidden><?= $row['IDClient'] ?></td>
                         <td><?= $row['NomClient'] ?></td>
                         <td><?= $row['N_identif'] ?></td>
                         <td><?= $p['NomPlace'] ?></td> <!-- Afficher l'ID de la place occupée -->
@@ -79,9 +79,9 @@ $result = mysqli_query($cnx, $query);
                             <a href="http://localhost/nvappe/frmsortir/frmSortir.php?IDEntrer=<?= $row['IDEntrer'] ?>&IDClient=<?= $row['IDClient'] ?>" class="nav-link m-2 ">
                                 <button type="submit" class="btn btn-outline-success "><i class='bx bx-log-out-circle '></i></button>
                             </a>
-                            <a href="http://localhost/nvappe/AfficherEntrer/modifierFrnmEntrer.php?IDEntrer=<?= $row['IDEntrer'] ?>&IDClient=<?= $row['IDClient'] ?>" class="nav-link m-2">
+                            <!-- <a href="http://localhost/nvappe/AfficherEntrer/modifierFrnmEntrer.php?IDEntrer=<?= $row['IDEntrer'] ?>&IDClient=<?= $row['IDClient'] ?>" class="nav-link m-2">
                                 <button type="submit" class="btn btn-outline-secondary"><i class='bx bxs-edit '></i></button>
-                            </a>
+                            </a> -->
                             <a href="#" class="nav-link m-2" data-toggle="modal" data-target="#confirmDeleteModal" onclick="setDeleteUrl('<?= $row['IDEntrer'] ?>', '<?= $row['IDClient'] ?>')">
                                 <button type="submit" class="btn btn-outline-danger"><i class='bx bx-x' ></i></button>
 

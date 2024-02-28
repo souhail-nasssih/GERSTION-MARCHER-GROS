@@ -31,14 +31,19 @@
           <label for="prenom" class="form-label">Description :</label>
           <input name="description" type="text" required class="form-control" id="description" aria-describedby="emailHelp">
         </div>
+        <select class="form-select mb-3 " id="selectType" aria-label="Sélectionnez un type">
+            <option selected disabled>Sélectionnez un type</option>
+            <option value="Fruit">Fruit</option>
+            <option value="Légume">Légume</option>
+          </select>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Aoujter</button>
       </form>
     </div>
   </div>
-  <?php 
-    include_once(__DIR__ . '/../inc/footer.php');
-    ?>  
+  <?php
+  include_once(__DIR__ . '/../inc/footer.php');
+  ?>
 </body>
 
 </html>

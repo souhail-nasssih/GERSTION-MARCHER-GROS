@@ -127,23 +127,23 @@ require('C:/laragon/www/NVAPPE/connection/__connection.php');
                             <table class="table table-striped">
                                 <thead class="table-dark opacity-75">
                                     <tr>
+                                        <th>Produits</th>
                                         <th>QTE Entrer</th>
                                         <th>QTE Sortir</th>
                                         <th>PrixVente</th>
                                         <th>Date</th>
                                         <th>Place</th>
-                                        <th>Produits</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php while ($row = mysqli_fetch_assoc($res)) { ?>
-
+                                        
+                                        <td><?= $row['NomProduit'] ?></td>
                                         <td><?= $row['QuantiteEntrer'] ?></td>
                                         <td><?= $row['QuantiteSortir'] ?></td>
                                         <td><?= $row['PrixVente'] ?></td>
                                         <td><?= date('Y-m-d', strtotime($row['DateEntrer'])); ?></td>
                                         <td><?= $row['NomPlace'] ?></td>
-                                        <td><?= $row['NomProduit'] ?></td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
@@ -154,6 +154,16 @@ require('C:/laragon/www/NVAPPE/connection/__connection.php');
             </div>
         </div>
 
+        <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>hello</h1>
+                    <p>&copy; 2024 BIOVITA. Tous droits réservés.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
     </section>
 
 
