@@ -129,6 +129,24 @@ mysqli_close($connexion);
             <button type="submit" class="btn btn-primary mb-5">Enregistrer l'Entrée</button>
         </form>
     </div>
+    <!-- Modal -->
+<div class="modal fade" id="deleteAlertModal" tabindex="-1" role="dialog" aria-labelledby="deleteAlertModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteAlertModalLabel">Alerte</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button> -->
+            </div>
+            <div class="modal-body">
+                Vous ne pouvez pas supprimer la dernière ligne.
+            </div>
+
+        </div>
+    </div>
+</div>
+
     <?php
     include_once(__DIR__ . '/../inc/footer.php');
     // include_once ('../s/Menu/navigation.php'); 
@@ -156,16 +174,20 @@ mysqli_close($connexion);
         }
 
         function supprimerLigne(button) {
-            // Récupérer la ligne parente du bouton
-            var ligneProduit = button.closest('.produits');
+        // Récupérer la ligne parente du bouton
+        var ligneProduit = button.closest('.produits');
 
-            // Vérifier s'il y a plus d'une ligne avant de supprimer
-            var lignesProduit = document.querySelectorAll('.produits');
-            if (lignesProduit.length > 1) {
-                // Supprimer la ligne seulement s'il y a plus d'une ligne
-                ligneProduit.remove();
-            } else {
-                alert("Vous ne pouvez pas supprimer la dernière ligne.");
-            }
+        // Vérifier s'il y a plus d'une ligne avant de supprimer
+        var lignesProduit = document.querySelectorAll('.produits');
+        if (lignesProduit.length > 1) {
+            // Supprimer la ligne seulement s'il y a plus d'une ligne
+            ligneProduit.remove();
+        } else {
+            // Afficher une fenêtre modale Bootstrap pour l'alerte
+            $('#deleteAlertModal').modal('show');
         }
+    }
+
+        
     </script>
+    

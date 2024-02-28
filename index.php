@@ -329,7 +329,7 @@ if ($result) {
           </div>
         </div>
       </section>
-
+  
       <script>
         // Configuration du graphique à barres
         var ctxB = document.getElementById("barChart").getContext('2d');

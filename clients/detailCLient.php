@@ -154,16 +154,7 @@ require('C:/laragon/www/NVAPPE/connection/__connection.php');
             </div>
         </div>
 
-        <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h1>hello</h1>
-                    <p>&copy; 2024 BIOVITA. Tous droits réservés.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+
     </section>
 
 
