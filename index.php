@@ -21,7 +21,7 @@ JOIN (
     GROUP BY IDPlace
 ) AS latest_place_entry ON f.IDPlace = latest_place_entry.IDPlace AND f.IDEntrer = latest_place_entry.MaxIDEntrer
 JOIN places p ON p.IDPlace = f.IDPlace
-WHERE p.EtatPlace = 'Occupee'
+WHERE p.EtatPlace = 'Occupee' 
 ORDER BY f.IDEntrer DESC limit 4;";
 
 $EtaPlace1 = mysqli_query($connexion, $place1);
@@ -293,6 +293,8 @@ if ($result) {
         <div class="container-fluid ">
           <div class="row d-flex justify-content-between">
             <div class="col-6 card widget-card border-light shadow-sm">
+            <h5 class="card-title widget-card-title m-2">Les Dernier Entrer</h5>
+
               <table class="table table-borderless bsb-table-xl text-nowrap align-middle m-0">
                 <thead>
                   <tr>
@@ -319,7 +321,7 @@ if ($result) {
             </div>
             <div class="col-6">
               <div class=" card card widget-card border-light shadow-sm w-100 ">
-                <h5 class="card-title widget-card-title m-2">Produits plus vents</h5>
+                <h5 class="card-title widget-card-title m-2">Type Produit plus vents</h5>
                 <div class="w-100 d-flex  justify-content-center ">
                   <canvas id="pieChart" class="w-50 h-50 mb-2"></canvas>
 

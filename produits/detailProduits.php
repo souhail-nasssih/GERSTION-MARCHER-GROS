@@ -37,7 +37,7 @@ foreach ($res as $produit) {
                 <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4" style="background-image: url(../clients/img/breadcrumb-bg.jpg);">
                     <ol class="breadcrumb mb-0">
                         <!-- <li class="breadcrumb-item"><a href="#">Home</a></li> -->
-                        <li class="breadcrumb-item "><a href="http://localhost/nvappe/clients/afficheCLients.php" class="text-light ">Produits</a></li>
+                        <li class="breadcrumb-item "><a href="http://localhost/nvappe/produits/liste_produit.php" class="text-light ">Produits</a></li>
                         <li class="breadcrumb-item active text-light" aria-current="page"> Detail Produits</li>
                     </ol>
                 </nav>

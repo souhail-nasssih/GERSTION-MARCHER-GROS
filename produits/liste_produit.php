@@ -41,7 +41,7 @@
                     <thead class="table-dark opacity-75">
                         <tr>
                             <!-- <th></th> -->
-                            <th scope="col">ID</th>
+                            <!-- <th scope="col">ID</th> -->
                             <th scope="col">Nom Produits</th>
                             <th scope="col">Description</th>
                             <th scope="col">QTE</th>
@@ -55,8 +55,8 @@
                         <?php foreach ($produits as $p) { ?>
                             <tr style="display:none;">
                                 <!-- <th><input type="checkbox" name="IDProduits[]" id="" value="<?= $p['IDProduit'] ?>"></th> -->
-                                <th scope="row"><?= $p['IDProduit'] ?></th>
-                                <td><?= $p['NomProduit'] ?></td>
+                                <th scope="row" hidden><?= $p['IDProduit'] ?></th>
+                                <td class="fw-bold text-center"><?= $p['NomProduit'] ?></td>
                                 <td><?= $p['DescriptionProduit'] ?></td>
                                 <td><?= $p['QuantiteStock'] ?></td>
                                 <td><?= $p['Type'] ?></td>

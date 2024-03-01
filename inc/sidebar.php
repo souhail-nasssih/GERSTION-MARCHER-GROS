@@ -11,7 +11,7 @@
             <div class="l-navbar" id="nav-bar">
                 <nav class="nav">
                     <div> <a href="#" class="nav_logo"> <i class='bx bxs-store icon'></i>
-                            <h2 class="nav_logo-name">G-Stock</h2>
+                            <h2 class="nav_logo-name">BioVita</h2>
                         </a>
                         <div class="nav_list">
                             <a href="http://localhost/nvappe/index.php" class="nav_link"> <i class='bx bx-grid-alt nav_icon'></i><span class="nav_name">Dashboard</span></a>
@@ -22,7 +22,7 @@
                             <a href="http://localhost/nvappe/clients/afficheCLients.php" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Clients</span> </a>
                             <a href="http://localhost/nvappe/EtatPlace/EtatPlace.php" class="nav_link"><i class='bx bxs-location-plus nav_icon'></i> <span class="nav_name">Place</span> </a>
                         </div>
-                    </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
+                    </div> <a href="http://localhost/nvappe/user/user.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
                 </nav>
             </div>
 

@@ -129,8 +129,8 @@ require('C:/laragon/www/NVAPPE/connection/__connection.php');
                                     <tr>
                                         <th>Produits</th>
                                         <th>QTE Entrer</th>
-                                        <th>QTE Sortir</th>
-                                        <th>PrixVente</th>
+                                        <th>QTE Vendue</th>
+                                        <th>Prix</th>
                                         <th>Date</th>
                                         <th>Place</th>
                                     </tr>

@@ -49,7 +49,7 @@ if(isset($_GET['id'])) {
                     <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4" style="background-image: url(../clients/img/breadcrumb-bg.jpg);">
                         <ol class="breadcrumb mb-0">
                             <!-- <li class="breadcrumb-item"><a href="#">Home</a></li> -->
-                            <li class="breadcrumb-item "><a href="http://localhost/nvappe/clients/afficheCLients.php" class="text-light ">Places</a></li>
+                            <li class="breadcrumb-item "><a href="http://localhost/nvappe/EtatPlace/EtatPlace.php" class="text-light ">Places</a></li>
                             <li class="breadcrumb-item active text-light" aria-current="page"> Detail Place</li>
                         </ol>
                     </nav>

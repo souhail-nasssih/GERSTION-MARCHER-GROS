@@ -70,7 +70,7 @@ $result = mysqli_query($cnx, $query);
                     <tr>
                         <td hidden><?= $row['IDEntrer'] ?></td>
                         <td hidden><?= $row['IDClient'] ?></td>
-                        <td><?= $row['NomClient'] ?></td>
+                        <td class="fw-bold text-center"><?= $row['NomClient'] ?></td>
                         <td><?= $row['N_identif'] ?></td>
                         <td><?= $p['NomPlace'] ?></td> <!-- Afficher l'ID de la place occupée -->
                         <td><?= $row['AdresseClient'] ?></td>
